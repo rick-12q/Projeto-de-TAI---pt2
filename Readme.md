@@ -1,6 +1,6 @@
-# Projeto TAI - Sistema de Supervisão e Controle de Célula FMS
+# Projeto TAI - Sistema de Supervisão e Controle do CLP
 
-Este repositório contém o desenvolvimento da camada de supervisão e lógica de controle baseada em **Node-RED** para uma célula de manufatura flexível (FMS).
+Este repositório contém o desenvolvimento da camada de supervisão e lógica de controle baseada em **Node-RED**
 
 **Desenvolvido por:** Luiz Henrique Monteiro
 
@@ -8,11 +8,11 @@ Este repositório contém o desenvolvimento da camada de supervisão e lógica d
 
 ## 📌 Visão Geral do Projeto
 
-O objetivo deste trabalho foi estabelecer a comunicação e o processamento de dados entre o nível de campo (sensores/atuadores, simulados ou reais) e uma interface de supervisão (Dashboard). Embora o sistema de controle de campo tenha sido desenvolvido no ambiente **Elipse E3** (não incluído neste repositório), toda a inteligência de processamento de mensagens, decodificação de dados e interface homem-máquina (HMI) foi implementada utilizando o **Node-RED**.
+O objetivo deste trabalho foi estabelecer a comunicação e o processamento de dados entre o nível de campo (sensores/atuadores, simulados ou reais) e uma interface de supervisão (Dashboard). Embora o sistema de controle de campo tenha sido desenvolvido no ambiente **Elipse E3** (não colocado nesse repositório), toda a inteligência de processamento de mensagens, decodificação de dados foi implementada utilizando o **Node-RED**.
 
-A comunicação entre o Elipse e o Node-RED é realizada através do protocolo **MQTT**, utilizando um *Broker* central como intermediário.
+A comunicação entre o Elipse e o Node-RED é realizada através do protocolo **MQTT**, utilizando um *Broker* central do lab como intermediário.
 
-## 🛠️ Detalhes Técnicos (Implementação no Node-RED)
+##  Detalhes Técnicos (Implementação no Node-RED)
 
 Esta seção descreve a lógica implementada nos fluxos do Node-RED para gerenciar os dados da célula.
 
@@ -36,19 +36,12 @@ Para variáveis que transportam múltiplos estados (como alarmes ou status de se
 
 Esta lógica utiliza **máscaras binárias** e operadores de deslocamento (`&`, `|`) para extrair o estado booleano (verdadeiro/falso) de cada bit individual dentro do byte recebido do campo (via Elipse).
 
-**Exemplo de Mapeamento de Bits (Ilustrativo):**
-* `Bit 2`: Comando de RESET (Ativo)
-* `Bit 4`: Status da Linha Ocupada
-* `Bit 5`: Detecção de Peça Metálica
-* `Bit 6`: Detecção de Peça Vermelha
-* `Bit 7`: Detecção de Peça Preta
-
 ## 📂 Estrutura do Repositório
 
 * `/02_NodeRED_Flows`: Contém o arquivo JSON completo com todos os fluxos, nós e configurações do projeto Node-RED.
 * `README.md`: Este arquivo com a documentação do projeto.
 
-## 🚀 Como Utilizar
+## Como Utilizar
 
 Para reproduzir este ambiente:
 
